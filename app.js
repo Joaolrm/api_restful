@@ -7,7 +7,7 @@ const loginController = require('./controller/login_controller');
 const produtoRouter = require('./rotas/produto_rotas');
 const middlewareAcesso = require('./middleware/acesso_middleware');
 
-app.use(express.json()) // for parsing application/json
+app.use(express.json()) 
 
 app.use((req, res, next) => {
     console.log(req.method+" "+req.originalUrl);
