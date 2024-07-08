@@ -1,17 +1,17 @@
-let listaServicosRealizados = [];
-
-let servicoInstance = {
-  idServico: 3,
-  dataHoraServico: "2024/07/07-19:30",
-};
-let servicoInstance2 = {
-  idServico: 4,
-  dataHoraServico: "2024/07/07-20:00",
-};
-let servicoInstance3 = {
-  idServico: 4,
-  dataHoraServico: "2024/07/08-19:30",
-};
+let listaServicosRealizados = [
+  {
+    idServico: 3,
+    dataHoraServico: "2024/07/07-19:30",
+  },
+  {
+    idServico: 4,
+    dataHoraServico: "2024/07/07-20:00",
+  },
+  {
+    idServico: 4,
+    dataHoraServico: "2024/07/08-19:30",
+  },
+];
 
 function listar() {
   return listaServicosRealizados;
@@ -65,3 +65,12 @@ function deletar(dataHoraMinuto, idServico) {
   return servicoRealizado;
 }
 
+
+module.exports = {
+  listar,
+  inserir,
+  atualizar,
+  deletar,
+  buscarPorKeyTabela,
+  buscarPorData,
+};
