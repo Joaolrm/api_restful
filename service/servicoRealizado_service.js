@@ -6,11 +6,16 @@ function listar() {
 }
 
 function inserir(servicoRealizado) {
-    if (servicoRealizado && servicoRealizado.idServico && servicoRealizado.dataHoraServico && servico_repository.buscarPorId(servicoRealizado.idServico)) {
-        return servicoRealizado_repository.inserir(servicoRealizado);
+    if (servicoRealizado_repository.buscarPorKeyTabela(servicoRealizado.dataHoraServico, servicoRealizado.idServico)) {
+        throw { id: 400, message: "Serviço já existe" };
     }
     else {
-        throw { id: 400, message: "Serviço realizado não possui um id de serviço ou uma data válida" };
+        if (servicoRealizado && servicoRealizado.idServico && servicoRealizado.dataHoraServico && servico_repository.buscarPorId(servicoRealizado.idServico)) {
+            return servicoRealizado_repository.inserir(servicoRealizado);
+        }
+        else {
+            throw { id: 400, message: "Serviço realizado não possui um id de serviço ou uma data válida" };
+        }
     }
 }
 
@@ -24,8 +29,8 @@ function buscarPorData(data) {
     }
 }
 
-function buscarPorKeyTabela(dataHoraMinuto, idServico) {
-    const servicoRealizado = servicoRealizado_repository.buscarPorKeyTabela(dataHoraMinuto, idServico);
+function buscarPorKeyTabela(dataHoraServico, idServico) {
+    const servicoRealizado = servicoRealizado_repository.buscarPorKeyTabela(dataHoraServico, idServico);
     if (servicoRealizado) {
         return servicoRealizado;
     }
@@ -34,10 +39,10 @@ function buscarPorKeyTabela(dataHoraMinuto, idServico) {
     }
 }
 
-function atualizar(dataHoraMinuto, idServico, servicoRealizadoAlterado) {
+function atualizar(dataHoraServico, idServico, servicoRealizadoAlterado) {
     if (servico_repository.buscarPorId(servicoRealizadoAlterado.idServico)) {
         if (servicoRealizadoAlterado && servicoRealizadoAlterado.idServico && servicoRealizadoAlterado.dataHoraServico) {
-            servicoRealizadoAlterado = servicoRealizado_repository.atualizar(dataHoraMinuto, idServico, servicoRealizadoAlterado);
+            servicoRealizadoAlterado = servicoRealizado_repository.atualizar(dataHoraServico, idServico, servicoRealizadoAlterado);
             if (servicoRealizadoAlterado) {
                 return servicoRealizadoAlterado;
             }

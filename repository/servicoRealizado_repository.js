@@ -2,19 +2,19 @@ const servico_repository = require('./servico_repository')
 let listaServicosRealizados = [
   {
     idServico: 3,
-    dataHoraServico: "2024/07/07-19:30",
+    dataHoraServico: "2024-07-07-19:30",
   },
   {
     idServico: 4,
-    dataHoraServico: "2024/07/07-20:00",
+    dataHoraServico: "2024-07-07-20:00",
   },
   {
     idServico: 4,
-    dataHoraServico: "2024/07/08-19:30",
+    dataHoraServico: "2024-07-08-19:30",
   },
   {
     idServico: 2,
-    dataHoraServico: "2024/07/08-19:30",
+    dataHoraServico: "2024-07-08-19:30",
   },
 ];
 
@@ -40,10 +40,10 @@ function buscarPorData(data) {
   return sevicosRealizadosNaData;
 }
 
-function buscarPorKeyTabela(dataHoraMinuto, idServico) {
+function buscarPorKeyTabela(dataHoraServico, idServico) {
   for (let servicoRealizado of listaServicosRealizados) {
     if (
-      servicoRealizado.dataHoraServico == dataHoraMinuto &&
+      servicoRealizado.dataHoraServico == dataHoraServico &&
       servicoRealizado.idServico == idServico
     ) {
       return servicoRealizado;

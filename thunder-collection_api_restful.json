@@ -1,0 +1,148 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "api_restful",
+    "collectionId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+    "dateExported": "2024-07-08T20:52:57.512Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
+            "name": "servicoRealizado",
+            "containerId": "",
+            "created": "2024-07-08T19:13:39.021Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0fbbbf79-1b50-48e3-bc4d-daaab824b7e1",
+            "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+            "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
+            "name": "listar",
+            "url": "http://localhost:3000/api/servicoRealizado",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-07-08T19:14:22.798Z",
+            "modified": "2024-07-08T20:31:25.882Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                }
+            ]
+        },
+        {
+            "_id": "d65866e1-0941-4a76-b938-4829e8e55bc9",
+            "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+            "containerId": "",
+            "name": "login",
+            "url": "localhost:3000/api/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-07-08T19:15:41.164Z",
+            "modified": "2024-07-08T19:23:21.160Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"usuario\": \"admin\",\n    \"senha\": \"12345\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "aa69304c-5ed5-4792-b435-e457e91e8b77",
+            "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+            "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
+            "name": "buscarPorKeyTabela",
+            "url": "localhost:3000/api/servicoRealizado/2024-07-10-19:30/1",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-07-08T19:40:19.297Z",
+            "modified": "2024-07-08T20:38:53.575Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                }
+            ]
+        },
+        {
+            "_id": "37502777-8f59-4049-bfcb-d1b3c53ab4a3",
+            "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+            "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
+            "name": "inserir",
+            "url": "http://localhost:3000/api/servicoRealizado",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-07-08T19:24:47.403Z",
+            "modified": "2024-07-08T20:30:05.331Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idServico\": 1,\n  \"dataHoraServico\": \"2024-07-10-19:30\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "8dcf09de-23e8-4dcc-91c1-af5e5bdebc1f",
+            "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+            "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
+            "name": "buscarPorData",
+            "url": "localhost:3000/api/servicoRealizado/2024-07-07",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-07-08T20:40:48.310Z",
+            "modified": "2024-07-08T20:41:25.832Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                }
+            ]
+        },
+        {
+            "_id": "0920e3cf-ae00-45b6-a0a3-491f58461e3e",
+            "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+            "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
+            "name": "deletar",
+            "url": "localhost:3000/api/servicoRealizado/2024-07-08-19:30/4",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-07-08T20:41:58.621Z",
+            "modified": "2024-07-08T20:44:41.264Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                }
+            ]
+        },
+        {
+            "_id": "463ca028-4be2-4567-8065-9d981006e348",
+            "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
+            "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
+            "name": "atualizar",
+            "url": "localhost:3000/api/servicoRealizado/2024-07-08-19:30/4",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-07-08T20:44:55.288Z",
+            "modified": "2024-07-08T20:52:02.749Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idServico\": 4,\n  \"dataHoraServico\": \"2024-07-07-20:15\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "Ls_2J5ZCgUqgBF-LWfMJGoLUyfIN6aBBQipNsphYiR7OusKkh_IUbWnuH0Lrke81xGFP_vjlE4Gi8sMZ-SZsIg"
+}
