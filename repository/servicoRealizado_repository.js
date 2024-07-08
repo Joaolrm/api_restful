@@ -1,3 +1,4 @@
+const servico_repository = require('./servico_repository')
 let listaServicosRealizados = [
   {
     idServico: 3,
@@ -9,6 +10,10 @@ let listaServicosRealizados = [
   },
   {
     idServico: 4,
+    dataHoraServico: "2024/07/08-19:30",
+  },
+  {
+    idServico: 2,
     dataHoraServico: "2024/07/08-19:30",
   },
 ];
@@ -26,7 +31,10 @@ function buscarPorData(data) {
   let sevicosRealizadosNaData = [];
   for (let servicoRealizado of listaServicosRealizados) {
     if (servicoRealizado.dataHoraServico.substring(0, 10) == data) {
-      sevicosRealizadosNaData.push(servicoRealizado);
+      let descricaoServico = servico_repository.buscarPorId(servicoRealizado.idServico)
+      let servicoRealizadoCopy = { ...servicoRealizado };
+      servicoRealizadoCopy.descricaoServico = descricaoServico.descricaoServico;
+      sevicosRealizadosNaData.push(servicoRealizadoCopy);
     }
   }
   return sevicosRealizadosNaData;

@@ -14,9 +14,13 @@ test("O metodo listar deve retornar a lista esperada e ter quantidade 3", () => 
       idServico: 4,
       dataHoraServico: "2024/07/08-19:30",
     },
+    {
+      idServico: 2,
+      dataHoraServico: "2024/07/08-19:30",
+    },
   ];
   expect(servicoRealizado_repository.listar()).toEqual(listaEsperadaDoListar);
-  expect(servicoRealizado_repository.listar()).toHaveLength(3);
+  expect(servicoRealizado_repository.listar()).toHaveLength(4);
 });
 
 test("Quando inserir um registro do serviço id = 1, para a data 2024/10/07-19:30, devemos encontrar-lo no listar", () => {
@@ -40,10 +44,12 @@ test("Quando buscar pela 2024/07/07 data, deve retornar todos os serviços daque
     {
       idServico: 3,
       dataHoraServico: "2024/07/07-19:30",
+      descricaoServico: "Corte tesoura",
     },
     {
       idServico: 4,
       dataHoraServico: "2024/07/07-20:00",
+      descricaoServico: "Corte tesoura + maquina",
     },
   ];
 
