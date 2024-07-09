@@ -28,10 +28,12 @@ function buscarPorData(req, res) {
 }
 
 function buscarPorKeyTabela(req, res) {
-    const dataHoraServico = req.params.dataHoraServico;
+    const idBarbearia = +req.params.idBarbearia;
+    const idBarbeiro = +req.params.idBarbeiro;
     const idServico = +req.params.idServico;
+    const dataHoraServico = req.params.dataHoraServico;
     try {
-        const servicoRealizadoPorKey = servicoRealizado_service.buscarPorKeyTabela(dataHoraServico, idServico);
+        const servicoRealizadoPorKey = servicoRealizado_service.buscarPorKeyTabela(idBarbearia, idBarbeiro, idServico, dataHoraServico);
         res.json(servicoRealizadoPorKey);
     }
     catch (err) {
@@ -41,10 +43,12 @@ function buscarPorKeyTabela(req, res) {
 
 function atualizar(req, res) {
     const servicoRealizadoAtualizado = req.body;
-    const dataHoraServico = req.params.dataHoraServico;
+    const idBarbearia = +req.params.idBarbearia;
+    const idBarbeiro = +req.params.idBarbeiro;
     const idServico = +req.params.idServico;
+    const dataHoraServico = req.params.dataHoraServico;
     try {
-        let servicoRealizadoAlterado = servicoRealizado_service.atualizar(dataHoraServico, idServico, servicoRealizadoAtualizado);
+        let servicoRealizadoAlterado = servicoRealizado_service.atualizar(idBarbearia, idBarbeiro, idServico, dataHoraServico, servicoRealizadoAtualizado);
         res.json(servicoRealizadoAlterado)
     }
     catch (err) {
@@ -53,10 +57,12 @@ function atualizar(req, res) {
 }
 
 function deletar(req, res) {
-    const dataHoraServico = req.params.dataHoraServico;
+    const idBarbearia = +req.params.idBarbearia;
+    const idBarbeiro = +req.params.idBarbeiro;
     const idServico = +req.params.idServico;
+    const dataHoraServico = req.params.dataHoraServico;
     try {
-        const servicoRealizadoDeletado = servicoRealizado_service.deletar(dataHoraServico, idServico);
+        const servicoRealizadoDeletado = servicoRealizado_service.deletar(idBarbearia, idBarbeiro, idServico, dataHoraServico);
         res.json(servicoRealizadoDeletado);
     }
     catch (err) {
