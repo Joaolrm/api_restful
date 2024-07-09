@@ -1,56 +1,58 @@
 const servicoRealizado_repository = require("./servicoRealizado_repository");
 
-test("O metodo listar deve retornar a lista esperada e ter quantidade 3", () => {
+test("Function listar", () => {
   let listaEsperadaDoListar = [
     {
-      idServico: 3,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
       dataHoraServico: "2024-07-07-19:30",
     },
     {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
       dataHoraServico: "2024-07-07-20:00",
     },
     {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
       dataHoraServico: "2024-07-08-19:30",
     },
     {
-      idServico: 2,
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
       dataHoraServico: "2024-07-08-19:30",
-    },
+    }
   ];
   expect(servicoRealizado_repository.listar()).toEqual(listaEsperadaDoListar);
   expect(servicoRealizado_repository.listar()).toHaveLength(4);
 });
 
-test("Quando inserir um registro do serviço id = 1, para a data 2024-10-07-19:30, devemos encontrar-lo no listar", () => {
-  const servicoRealizadoInseridoEsperado = {
-    idServico: 1,
-    dataHoraServico: "2024-10-07-19:30",
-  };
-
-  servicoRealizado_repository.inserir({
-    idServico: 1,
-    dataHoraServico: "2024-10-07-19:30",
-  });
-
-  expect(servicoRealizado_repository.listar()).toContainEqual(
-    servicoRealizadoInseridoEsperado
-  );
-});
-
-test("Quando buscar pela 2024-07-07 data, deve retornar todos os serviços daquela data e ter quantidade de 2", () => {
+test("Function buscarPorData", () => {
   let listaEsperadaBuscarPorData = [
     {
-      idServico: 3,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
       dataHoraServico: "2024-07-07-19:30",
-      descricaoServico: "Corte tesoura",
+      descricaoServico: "Corte simples",
+      nomeBarbearia: "Barbel",
+      nomeBarbeiro: "Roger",
+      valorServico: "20,00"
     },
     {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
       dataHoraServico: "2024-07-07-20:00",
-      descricaoServico: "Corte tesoura + maquina",
-    },
+      descricaoServico: "Corte simples",
+      nomeBarbearia: "Barbel",
+      nomeBarbeiro: "João",
+      valorServico: "20,00"
+    }
   ];
 
   const resultado = servicoRealizado_repository.buscarPorData("2024-07-07");
@@ -59,69 +61,102 @@ test("Quando buscar pela 2024-07-07 data, deve retornar todos os serviços daque
   expect(resultado).toHaveLength(2);
 });
 
-test("Quando buscar pelo momento 2024-07-08-19:30 e idServico = 4, apenas o servicoRealizado para esse momento e nesse serviço", () => {
+test("Function buscarPorKeyTabela", () => {
   let servicoRealizadoEsperado = {
-    idServico: 4,
-    dataHoraServico: "2024-07-08-19:30",
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-07-20:00",
   };
 
-  const resultado = servicoRealizado_repository.buscarPorKeyTabela(
-    "2024-07-08-19:30",
-    4
-  );
+  const resultado = servicoRealizado_repository.buscarPorKeyTabela(1, 2, 1, "2024-07-07-20:00");
 
   expect(resultado).toEqual(servicoRealizadoEsperado);
 });
 
-test("Quando atualizar o serviço realizado pela data 2024-07-08-19:30 e id 4, ele deve ser econtrado com a função buscarPorKeyTabela e a sua versão anterior não", () => {
+test("Function atualizar", () => {
   let servicoRealizadoAnterior = {
-    idServico: 4,
-    dataHoraServico: "2024-07-08-19:30",
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-07-20:00",
   };
   let servicoRealizadoAlterado = {
-    idServico: 3,
-    dataHoraServico: "2024-07-08-19:30",
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-07-20:30",
   };
   servicoRealizado_repository.atualizar(
-    "2024-07-08-19:30",
-    4,
+    servicoRealizadoAnterior.idBabearia,
+    servicoRealizadoAnterior.idBarbeiro,
+    servicoRealizadoAnterior.idServico,
+    servicoRealizadoAnterior.dataHoraServico,
     servicoRealizadoAlterado
   );
   expect(
     servicoRealizado_repository.buscarPorKeyTabela(
-      servicoRealizadoAlterado.dataHoraServico,
-      servicoRealizadoAlterado.idServico
+      servicoRealizadoAlterado.idBabearia,
+      servicoRealizadoAlterado.idBarbeiro,
+      servicoRealizadoAlterado.idServico,
+      servicoRealizadoAlterado.dataHoraServico
     )
   ).toEqual(servicoRealizadoAlterado);
   expect(
     servicoRealizado_repository.buscarPorKeyTabela(
-      servicoRealizadoAnterior.dataHoraServico,
-      servicoRealizadoAnterior.idServico
+      servicoRealizadoAnterior.idBabearia,
+      servicoRealizadoAnterior.idBarbeiro,
+      servicoRealizadoAnterior.idServico,
+      servicoRealizadoAnterior.dataHoraServico
     )
   ).toBeUndefined();
 });
 
-test("Quando deletar o serviço realizado, ele não deve mais ser encontrado pela buscarPorKeyTabela", () => {
-  let servicoRealizadoDeletar = {
-    idServico: 3,
-    dataHoraServico: "2024-07-07-19:30",
+test("Function inserir", () => {
+  const servicoRealizadoInseridoEsperado = {
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-09-09:30",
   };
+
+  servicoRealizado_repository.inserir(servicoRealizadoInseridoEsperado);
+
+  expect(servicoRealizado_repository.listar()).toContainEqual(
+    servicoRealizadoInseridoEsperado
+  );
+});
+
+test("Function deletar", () => {
+  let servicoRealizadoDeletar = {
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-09-09:30",
+  };
+
   expect(
     servicoRealizado_repository.buscarPorKeyTabela(
-      servicoRealizadoDeletar.dataHoraServico,
-      servicoRealizadoDeletar.idServico
+      servicoRealizadoDeletar.idBabearia,
+      servicoRealizadoDeletar.idBarbeiro,
+      servicoRealizadoDeletar.idServico,
+      servicoRealizadoDeletar.dataHoraServico
     )
   ).toEqual(servicoRealizadoDeletar);
 
   servicoRealizado_repository.deletar(
-    servicoRealizadoDeletar.dataHoraServico,
-    servicoRealizadoDeletar.idServico
+    servicoRealizadoDeletar.idBabearia,
+    servicoRealizadoDeletar.idBarbeiro,
+    servicoRealizadoDeletar.idServico,
+    servicoRealizadoDeletar.dataHoraServico
   );
 
   expect(
     servicoRealizado_repository.buscarPorKeyTabela(
-      servicoRealizadoDeletar.dataHoraServico,
-      servicoRealizadoDeletar.idServico
+      servicoRealizadoDeletar.idBabearia,
+      servicoRealizadoDeletar.idBarbeiro,
+      servicoRealizadoDeletar.idServico,
+      servicoRealizadoDeletar.dataHoraServico
     )
   ).toBeUndefined();
 });

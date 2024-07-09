@@ -1,7 +1,7 @@
 const servico_repository = require('./servico_repository');
 
 
-test("buscarPorId deve retornar o serviço daquele id", () => {
+test("Function buscarPorId", () => {
     let servicoEsperado = {
         idServico: 1,
         descricaoServico: "Corte simples",

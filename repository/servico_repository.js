@@ -1,5 +1,4 @@
-let idGerador = 4;
-
+let idGenerator = 4;
 let listaServicos = [
     {
         idServico: 1,

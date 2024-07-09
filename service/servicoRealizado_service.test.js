@@ -1,21 +1,29 @@
 const servicoRealizado_service = require("./servicoRealizado_service");
 
-test("Função listar deve retornar toda a lista", () => {
+test("Funciton listar", () => {
   let listaDeServicosRealizados = [
     {
-      idServico: 3,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
       dataHoraServico: "2024-07-07-19:30",
     },
     {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
       dataHoraServico: "2024-07-07-20:00",
     },
     {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
       dataHoraServico: "2024-07-08-19:30",
     },
     {
-      idServico: 2,
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
       dataHoraServico: "2024-07-08-19:30",
     },
   ];
@@ -23,20 +31,42 @@ test("Função listar deve retornar toda a lista", () => {
 });
 
 test("Function buscarPorKeyTabela", () => {
-  expect((() => servicoRealizado_service.buscarPorKeyTabela("2024-07-08-22:30", 4))).toThrow();
+
+  let servicoRealizadoEsperado = {
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-07-20:00",
+  };
+
+  const resultado = servicoRealizado_service.buscarPorKeyTabela(1, 2, 1, "2024-07-07-20:00");
+
+  expect(resultado).toEqual(servicoRealizadoEsperado);
+
+  expect((() => servicoRealizado_service.buscarPorKeyTabela(1, 8, 1, "2024-07-07-20:00"))).toThrow();
 });
 
 test("Função buscarPorData", () => {
   let servicosRealizadosEsperados = [
     {
-      idServico: 3,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
       dataHoraServico: "2024-07-07-19:30",
-      descricaoServico: "Corte tesoura",
+      descricaoServico: "Corte simples",
+      nomeBarbearia: "Barbel",
+      nomeBarbeiro: "Roger",
+      valorServico: "20,00"
     },
     {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
       dataHoraServico: "2024-07-07-20:00",
-      descricaoServico: "Corte tesoura + maquina",
+      descricaoServico: "Corte simples",
+      nomeBarbearia: "Barbel",
+      nomeBarbeiro: "João",
+      valorServico: "20,00"
     }
   ];
   expect(servicoRealizado_service.buscarPorData("2024-07-07")).toEqual(servicosRealizadosEsperados);
@@ -45,22 +75,33 @@ test("Função buscarPorData", () => {
 
 test("Função inserir", () => {
   let casoFuncional = {
+    idBabearia: 1,
+    idBarbeiro: 2,
     idServico: 1,
-    dataHoraServico: "2024-07-07-19:30",
+    dataHoraServico: "2024-07-09-09:30",
   };
   let casosFalhos = [{
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-09-09:30",
+  },
+  {
+    idBabearia: 1,
+    idBarbeiro: 2,
     idServico: 8,
-    dataHoraServico: "2024-07-07-19:30",
+    dataHoraServico: "2024-07-09-10:30",
   },
   {
+    idBabearia: 1,
+    idBarbeiro: 2,
     idServico: 1,
   },
   {
-    dataHoraServico: "2024-07-07-19:30",
-  },
-  {
+    idBabearia: 1,
+    idBarbeiro: 2,
     idServico: 1,
-    dataHoraServico: "2024-07-07-19:30",
+    dataHoraServico: "2024-07-09-09:30",
   }];
 
   servicoRealizado_service.inserir(casoFuncional);
@@ -73,90 +114,167 @@ test("Função inserir", () => {
 
 });
 
+
+
 test("Função atualizar", () => {
   let casoFuncional = {
     servicoAAtualizar: {
-      idServico: 3,
-      dataHoraServico: "2024-07-07-19:30"
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
+      dataHoraServico: "2024-07-07-20:00",
     },
     servicoAtualizado: {
-      idServico: 3,
-      dataHoraServico: "2024-07-07-19:35"
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
+      dataHoraServico: "2024-07-07-19:40",
     }
   };
 
-  servicoRealizado_service.atualizar(casoFuncional.servicoAAtualizar.dataHoraServico, casoFuncional.servicoAAtualizar.idServico, casoFuncional.servicoAtualizado);
+  servicoRealizado_service.atualizar(
+    casoFuncional.servicoAAtualizar.idBabearia,
+    casoFuncional.servicoAAtualizar.idBarbeiro,
+    casoFuncional.servicoAAtualizar.idServico,
+    casoFuncional.servicoAAtualizar.dataHoraServico,
+    casoFuncional.servicoAtualizado
+  );
 
-  expect(servicoRealizado_service.buscarPorKeyTabela(casoFuncional.servicoAtualizado.dataHoraServico, casoFuncional.servicoAtualizado.idServico)).toEqual(casoFuncional.servicoAtualizado);
+  expect(servicoRealizado_service.buscarPorKeyTabela(
+    casoFuncional.servicoAtualizado.idBabearia,
+    casoFuncional.servicoAtualizado.idBarbeiro,
+    casoFuncional.servicoAtualizado.idServico,
+    casoFuncional.servicoAtualizado.dataHoraServico
+  )).toEqual(casoFuncional.servicoAtualizado);
 
   let casoFalho = {
     servicoAAtualizar: {
-      idServico: 4,
-      dataHoraServico: "2024-07-08-19:38",
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
+      dataHoraServico: "2024-07-07-19:30",
     },
     servicoAtualizado: {
-      idServico: 3,
-      dataHoraServico: "2024-07-07-19:35"
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
+      dataHoraServico: "2024-07-07-19:40",
     }
   };
 
-  expect(() => servicoRealizado_service.atualizar(casoFalho.servicoAAtualizar.dataHoraServico, casoFalho.servicoAAtualizar.idServico, casoFalho.servicoAtualizado)).toThrow();
+  expect(() => servicoRealizado_service.atualizar(
+    casoFalho.servicoAAtualizar.idBabearia,
+    casoFalho.servicoAAtualizar.idBarbeiro,
+    casoFalho.servicoAAtualizar.idServico,
+    casoFalho.servicoAAtualizar.dataHoraServico,
+    casoFalho.servicoAtualizado
+  )).toThrow();
 
   let casoFalho2 = {
     servicoAAtualizar: {
-      idServico: 4,
-      dataHoraServico: "2024-07-08-19:30",
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
+      dataHoraServico: "2025-07-07-19:30",
     },
     servicoAtualizado: {
-      idServico: 13,
-      dataHoraServico: "2024-07-07-19:35"
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
+      dataHoraServico: "2025-07-07-19:40",
     }
   };
 
-  expect(() => servicoRealizado_service.atualizar(casoFalho2.servicoAAtualizar.dataHoraServico, casoFalho2.servicoAAtualizar.idServico, casoFalho2.servicoAtualizado)).toThrow();
+  expect(() => servicoRealizado_service.atualizar(
+    casoFalho2.servicoAAtualizar.idBabearia,
+    casoFalho2.servicoAAtualizar.idBarbeiro,
+    casoFalho2.servicoAAtualizar.idServico,
+    casoFalho2.servicoAAtualizar.dataHoraServico,
+    casoFalho2.servicoAtualizado
+  )).toThrow();
+
 
   let casoFalho3 = {
     servicoAAtualizar: {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
       dataHoraServico: "2024-07-08-19:30",
     },
     servicoAtualizado: {
-      idServico: 4,
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 18,
+      dataHoraServico: "2026-07-07-19:40",
     }
   };
 
-  expect(() => servicoRealizado_service.atualizar(casoFalho3.servicoAAtualizar.dataHoraServico, casoFalho3.servicoAAtualizar.idServico, casoFalho3.servicoAtualizado)).toThrow();
+  expect(() => servicoRealizado_service.atualizar(
+    casoFalho3.servicoAAtualizar.idBabearia,
+    casoFalho3.servicoAAtualizar.idBarbeiro,
+    casoFalho3.servicoAAtualizar.idServico,
+    casoFalho3.servicoAAtualizar.dataHoraServico,
+    casoFalho3.servicoAtualizado
+  )).toThrow();
+
 
   let casoFalho4 = {
     servicoAAtualizar: {
-      idServico: 4,
-      dataHoraServico: "2024-07-08-22:30",
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
+      dataHoraServico: "2024-07-08-19:30",
     },
     servicoAtualizado: {
-      idServico: 4,
-      dataHoraServico: "2024-07-08-19:30"
+      idBabearia: 1,
+      idBarbeiro: 1,
+      idServico: 1,
     }
   };
 
-  expect(() => servicoRealizado_service.atualizar(casoFalho4.servicoAAtualizar.dataHoraServico, casoFalho4.servicoAAtualizar.idServico, casoFalho4.servicoAtualizado)).toThrow();
-
+  expect(() => servicoRealizado_service.atualizar(
+    casoFalho4.servicoAAtualizar.idBabearia,
+    casoFalho4.servicoAAtualizar.idBarbeiro,
+    casoFalho4.servicoAAtualizar.idServico,
+    casoFalho4.servicoAAtualizar.dataHoraServico,
+    casoFalho4.servicoAtualizado
+  )).toThrow();
 
 
 });
 
 test("Function deletar", () => {
   let casoFuncional = {
-    idServico: 2,
-    dataHoraServico: "2024-07-08-19:30",
+    idBabearia: 1,
+    idBarbeiro: 2,
+    idServico: 1,
+    dataHoraServico: "2024-07-09-09:30",
   }
 
-  servicoRealizado_service.deletar(casoFuncional.dataHoraServico, casoFuncional.idServico);
+  servicoRealizado_service.deletar(
+    casoFuncional.idBabearia,
+    casoFuncional.idBarbeiro,
+    casoFuncional.idServico,
+    casoFuncional.dataHoraServico
+  );
 
-  expect(() => servicoRealizado_service.buscarPorKeyTabela(casoFuncional.idServico, casoFuncional.dataHoraServico)).toThrow();
+  expect(() => servicoRealizado_service.buscarPorKeyTabela(
+    casoFuncional.idBabearia,
+    casoFuncional.idBarbeiro,
+    casoFuncional.idServico,
+    casoFuncional.dataHoraServico
+  )).toThrow();
 
   let casoFalho = {
+    idBabearia: 1,
+    idBarbeiro: 2,
     idServico: 8,
-    dataHoraServico: "2024-07-08-19:30",
+    dataHoraServico: "2024-07-09-09:30",
   }
-  expect(() => servicoRealizado_service.deletar(casoFalho.dataHoraServico, casoFalho.idServico)).toThrow();
+  expect(() => servicoRealizado_service.deletar(
+    casoFalho.idBabearia,
+    casoFalho.idBarbeiro,
+    casoFalho.idServico,
+    casoFalho.dataHoraServico
+  )).toThrow();
 });
