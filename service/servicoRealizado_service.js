@@ -14,7 +14,7 @@ function inserir(servicoRealizado) {
             return servicoRealizado_repository.inserir(servicoRealizado);
         }
         else {
-            throw { id: 400, message: "Serviço realizado não possui um id de serviço ou uma data válida" };
+            throw { id: 400, message: "Serviço realizado não possui todos os campos válidos" };
         }
     }
 }

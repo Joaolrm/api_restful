@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "api_restful",
     "collectionId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
-    "dateExported": "2024-07-08T20:52:57.512Z",
+    "dateExported": "2024-07-09T20:00:18.901Z",
     "version": "1.2",
     "folders": [
         {
@@ -23,11 +23,11 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-07-08T19:14:22.798Z",
-            "modified": "2024-07-08T20:31:25.882Z",
+            "modified": "2024-07-09T19:58:10.714Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
                 }
             ]
         },
@@ -53,15 +53,15 @@
             "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
             "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
             "name": "buscarPorKeyTabela",
-            "url": "localhost:3000/api/servicoRealizado/2024-07-10-19:30/1",
+            "url": "localhost:3000/api/servicoRealizado/1/2/1/2024-07-07-20:00",
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-07-08T19:40:19.297Z",
-            "modified": "2024-07-08T20:38:53.575Z",
+            "modified": "2024-07-09T19:58:14.348Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
                 }
             ]
         },
@@ -74,16 +74,16 @@
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-07-08T19:24:47.403Z",
-            "modified": "2024-07-08T20:30:05.331Z",
+            "modified": "2024-07-09T19:58:21.580Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
                 }
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"idServico\": 1,\n  \"dataHoraServico\": \"2024-07-10-19:30\"\n}",
+                "raw": "{\n  \"idBabearia\": 1,\n  \"idBarbeiro\": 1,\n  \"idServico\": 1,\n  \"dataHoraServico\": \"2025-07-07-19:30\"\n}",
                 "form": []
             }
         },
@@ -96,11 +96,11 @@
             "method": "GET",
             "sortNum": 40000,
             "created": "2024-07-08T20:40:48.310Z",
-            "modified": "2024-07-08T20:41:25.832Z",
+            "modified": "2024-07-09T19:58:29.566Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
                 }
             ]
         },
@@ -109,15 +109,15 @@
             "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
             "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
             "name": "deletar",
-            "url": "localhost:3000/api/servicoRealizado/2024-07-08-19:30/4",
+            "url": "localhost:3000/api/servicoRealizado/1/1/1/2024-07-07-19:30",
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2024-07-08T20:41:58.621Z",
-            "modified": "2024-07-08T20:44:41.264Z",
+            "modified": "2024-07-09T19:58:43.362Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
                 }
             ]
         },
@@ -126,23 +126,23 @@
             "colId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
             "containerId": "6adee55f-32cd-49f6-8ae1-fa777cc9353c",
             "name": "atualizar",
-            "url": "localhost:3000/api/servicoRealizado/2024-07-08-19:30/4",
+            "url": "localhost:3000/api/servicoRealizado/1/2/1/2024-07-07-20:00",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-07-08T20:44:55.288Z",
-            "modified": "2024-07-08T20:52:02.749Z",
+            "modified": "2024-07-09T19:59:52.481Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNDcwNTk2LCJleHAiOjE3MjA0NzQxOTZ9.VSUI6T1NNG2QPIuYL1BpvffKScpTgN-ubNWuhgNroek"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
                 }
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"idServico\": 4,\n  \"dataHoraServico\": \"2024-07-07-20:15\"\n}",
+                "raw": "{\n    \"idBabearia\": 1,\n    \"idBarbeiro\": 2,\n    \"idServico\": 1,\n    \"dataHoraServico\": \"2024-07-07-20:15\"\n}",
                 "form": []
             }
         }
     ],
-    "ref": "Ls_2J5ZCgUqgBF-LWfMJGoLUyfIN6aBBQipNsphYiR7OusKkh_IUbWnuH0Lrke81xGFP_vjlE4Gi8sMZ-SZsIg"
+    "ref": "Ls_2J5ZCgUqgBF-LWfMJGl6ltkFdvpLK8di5cM0DeNxMvzZaYnHJxfx7DLPY6JKNFXlpoXuhf18C879RZed2FA"
 }
