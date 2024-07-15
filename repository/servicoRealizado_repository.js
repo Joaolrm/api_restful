@@ -1,7 +1,7 @@
-const servico_repository = require('./servico_repository')
-const barbearia_repository = require('./barbearia_repository')
-const barbeiro_repository = require('./barbeiro_repository')
-const valorServico_repository = require('./valorServico_repository')
+const servico_repository = require("./servico_repository");
+const barbearia_repository = require("./barbearia_repository");
+const barbeiro_repository = require("./barbeiro_repository");
+const valorServico_repository = require("./valorServico_repository");
 
 let listaServicosRealizados = [
   {
@@ -43,19 +43,27 @@ function buscarPorData(data) {
   let sevicosRealizadosNaData = [];
   for (let servicoRealizado of listaServicosRealizados) {
     if (servicoRealizado.dataHoraServico.substring(0, 10) == data) {
-
-      let descricaoServico = servico_repository.buscarPorId(servicoRealizado.idServico);
-      let valorServico = valorServico_repository.buscarPorKeyTabela(servicoRealizado.idBabearia, servicoRealizado.idBarbeiro, servicoRealizado.idServico);
-      let nomeBarbeiro = barbeiro_repository.buscarPorId(servicoRealizado.idBarbeiro);
-      let nomeBarbearia = barbearia_repository.buscarPorId(servicoRealizado.idBabearia);
-
+      let descricaoServico = servico_repository.buscarPorId(
+        servicoRealizado.idServico
+      );
+      let valorServico = valorServico_repository.buscarPorKeyTabela(
+        servicoRealizado.idBabearia,
+        servicoRealizado.idBarbeiro,
+        servicoRealizado.idServico
+      );
+      let nomeBarbeiro = barbeiro_repository.buscarPorId(
+        servicoRealizado.idBarbeiro
+      );
+      let nomeBarbearia = barbearia_repository.buscarPorId(
+        servicoRealizado.idBabearia
+      );
 
       let servicoRealizadoCopy = { ...servicoRealizado };
 
       servicoRealizadoCopy.descricaoServico = descricaoServico.descricaoServico;
       servicoRealizadoCopy.valorServico = valorServico.valorServico;
       servicoRealizadoCopy.nomeBarbeiro = nomeBarbeiro.nomeBarbeiro;
-      servicoRealizadoCopy.nomeBarbearia = nomeBarbearia.nomeBarbearia
+      servicoRealizadoCopy.nomeBarbearia = nomeBarbearia.nomeBarbearia;
 
       sevicosRealizadosNaData.push(servicoRealizadoCopy);
     }
@@ -63,7 +71,12 @@ function buscarPorData(data) {
   return sevicosRealizadosNaData;
 }
 
-function buscarPorKeyTabela(idBabearia, idBarbeiro, idServico, dataHoraServico) {
+function buscarPorKeyTabela(
+  idBabearia,
+  idBarbeiro,
+  idServico,
+  dataHoraServico
+) {
   for (let servicoRealizado of listaServicosRealizados) {
     if (
       servicoRealizado.idBabearia == idBabearia &&
@@ -76,8 +89,19 @@ function buscarPorKeyTabela(idBabearia, idBarbeiro, idServico, dataHoraServico) 
   }
 }
 
-function atualizar(idBabearia, idBarbeiro, idServico, dataHoraServico, servicoRealizadoAlterado) {
-  let servicoRealizado = buscarPorKeyTabela(idBabearia, idBarbeiro, idServico, dataHoraServico);
+function atualizar(
+  idBabearia,
+  idBarbeiro,
+  idServico,
+  dataHoraServico,
+  servicoRealizadoAlterado
+) {
+  let servicoRealizado = buscarPorKeyTabela(
+    idBabearia,
+    idBarbeiro,
+    idServico,
+    dataHoraServico
+  );
   if (servicoRealizado) {
     servicoRealizado.idBabearia = servicoRealizadoAlterado.idBabearia;
     servicoRealizado.idBarbeiro = servicoRealizadoAlterado.idBarbeiro;

@@ -25,7 +25,7 @@ test("Function listar", () => {
       idBarbeiro: 2,
       idServico: 1,
       dataHoraServico: "2024-07-08-19:30",
-    }
+    },
   ];
   expect(servicoRealizado_repository.listar()).toEqual(listaEsperadaDoListar);
   expect(servicoRealizado_repository.listar()).toHaveLength(4);
@@ -41,7 +41,7 @@ test("Function buscarPorData", () => {
       descricaoServico: "Corte simples",
       nomeBarbearia: "Barbel",
       nomeBarbeiro: "Roger",
-      valorServico: "20,00"
+      valorServico: "20,00",
     },
     {
       idBabearia: 1,
@@ -51,8 +51,8 @@ test("Function buscarPorData", () => {
       descricaoServico: "Corte simples",
       nomeBarbearia: "Barbel",
       nomeBarbeiro: "João",
-      valorServico: "20,00"
-    }
+      valorServico: "20,00",
+    },
   ];
 
   const resultado = servicoRealizado_repository.buscarPorData("2024-07-07");
@@ -69,7 +69,12 @@ test("Function buscarPorKeyTabela", () => {
     dataHoraServico: "2024-07-07-20:00",
   };
 
-  const resultado = servicoRealizado_repository.buscarPorKeyTabela(1, 2, 1, "2024-07-07-20:00");
+  const resultado = servicoRealizado_repository.buscarPorKeyTabela(
+    1,
+    2,
+    1,
+    "2024-07-07-20:00"
+  );
 
   expect(resultado).toEqual(servicoRealizadoEsperado);
 });
