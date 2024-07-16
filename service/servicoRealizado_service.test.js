@@ -101,28 +101,35 @@ test("Função inserir", () => {
     dataHoraServico: "2024-07-09-09:30",
   };
   let casosFalhos = [
-    {
-      idBabearia: 1,
-      idBarbeiro: 2,
-      idServico: 1,
-      dataHoraServico: "2024-07-09-09:30",
-    },
+    // Serviço inválido
     {
       idBabearia: 1,
       idBarbeiro: 2,
       idServico: 8,
       dataHoraServico: "2024-07-09-10:30",
     },
+
+    // Dado faltando
     {
       idBabearia: 1,
       idBarbeiro: 2,
       idServico: 1,
     },
+
+    // Repetido
     {
       idBabearia: 1,
       idBarbeiro: 2,
       idServico: 1,
       dataHoraServico: "2024-07-09-09:30",
+    },
+
+    // Fora do horário de funcionamento
+    {
+      idBabearia: 1,
+      idBarbeiro: 2,
+      idServico: 1,
+      dataHoraServico: "2024-07-09-06:00",
     },
   ];
 
@@ -148,7 +155,7 @@ test("Função atualizar", () => {
       idBabearia: 1,
       idBarbeiro: 1,
       idServico: 1,
-      dataHoraServico: "2024-07-07-19:40",
+      dataHoraServico: "2024-07-07-14:00",
     },
   };
 
@@ -169,6 +176,7 @@ test("Função atualizar", () => {
     )
   ).toEqual(casoFuncional.servicoAtualizado);
 
+  // Fora de hora
   let casoFalho = {
     servicoAAtualizar: {
       idBabearia: 1,
@@ -194,6 +202,7 @@ test("Função atualizar", () => {
     )
   ).toThrow();
 
+  // Não localizado
   let casoFalho2 = {
     servicoAAtualizar: {
       idBabearia: 1,
@@ -205,7 +214,7 @@ test("Função atualizar", () => {
       idBabearia: 1,
       idBarbeiro: 1,
       idServico: 1,
-      dataHoraServico: "2025-07-07-19:40",
+      dataHoraServico: "2025-07-07-13:40",
     },
   };
 
@@ -219,6 +228,8 @@ test("Função atualizar", () => {
     )
   ).toThrow();
 
+
+  // Já existente
   let casoFalho3 = {
     servicoAAtualizar: {
       idBabearia: 1,
@@ -229,8 +240,8 @@ test("Função atualizar", () => {
     servicoAtualizado: {
       idBabearia: 1,
       idBarbeiro: 1,
-      idServico: 18,
-      dataHoraServico: "2026-07-07-19:40",
+      idServico: 1,
+      dataHoraServico: "2024-07-07-14:00",
     },
   };
 
@@ -244,6 +255,8 @@ test("Função atualizar", () => {
     )
   ).toThrow();
 
+
+  //Fração faltando
   let casoFalho4 = {
     servicoAAtualizar: {
       idBabearia: 1,
@@ -254,7 +267,7 @@ test("Função atualizar", () => {
     servicoAtualizado: {
       idBabearia: 1,
       idBarbeiro: 1,
-      idServico: 1,
+      dataHoraServico: "2024-07-08-19:30",
     },
   };
 
@@ -267,6 +280,33 @@ test("Função atualizar", () => {
       casoFalho4.servicoAtualizado
     )
   ).toThrow();
+
+
+    //Fração id servico inexistente
+    let casoFalho5 = {
+      servicoAAtualizar: {
+        idBabearia: 1,
+        idBarbeiro: 1,
+        idServico: 1,
+        dataHoraServico: "2024-07-08-19:30",
+      },
+      servicoAtualizado: {
+        idBabearia: 1,
+        idBarbeiro: 1,
+        idServico: 8,
+        dataHoraServico: "2024-07-08-19:30",
+      },
+    };
+  
+    expect(() =>
+      servicoRealizado_service.atualizar(
+        casoFalho5.servicoAAtualizar.idBabearia,
+        casoFalho5.servicoAAtualizar.idBarbeiro,
+        casoFalho5.servicoAAtualizar.idServico,
+        casoFalho5.servicoAAtualizar.dataHoraServico,
+        casoFalho5.servicoAtualizado
+      )
+    ).toThrow();
 });
 
 test("Function deletar", () => {

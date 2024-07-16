@@ -1,12 +1,10 @@
-// barbeiro_service.test.js
 const barbeiroService = require('../service/barbeiro_service');
 const barbeiro_repository = require('../repository/barbeiro_repository');
 
-// Mockando o repositório
 jest.mock('../repository/barbeiro_repository');
 
 beforeEach(() => {
-  // Limpa todos os mocks antes de cada teste
+  
   jest.clearAllMocks();
 });
 
@@ -20,14 +18,18 @@ test('Adicionar um novo barbeiro', () => {
   }));
 
   const novoBarbeiro = {
-    nomeBarbeiro: 'Novo Barbeiro',
-    telefone: '123456789',
-    cpf: '123.456.789-00'
+    nomeBarbeiro: "Novo Barbeiro",
+    telefone: "123456789",
+    cpf: "123.456.789-00"
   };
 
-  const barbeiroAdicionado = barbeiroService.adicionarBarbeiro(novoBarbeiro.nomeBarbeiro, novoBarbeiro.telefone, novoBarbeiro.cpf);
+  const barbeiroAdicionado = barbeiroService.adicionarBarbeiro(
+    novoBarbeiro.nomeBarbeiro,
+    novoBarbeiro.telefone,
+    novoBarbeiro.cpf
+  );
 
-  expect(barbeiroAdicionado).toHaveProperty('idBarbeiro');
+  expect(barbeiroAdicionado).toHaveProperty("idBarbeiro");
   expect(barbeiroAdicionado.nomeBarbeiro).toBe(novoBarbeiro.nomeBarbeiro);
   expect(barbeiroAdicionado.telefone).toBe(novoBarbeiro.telefone);
   expect(barbeiroAdicionado.cpf).toBe(novoBarbeiro.cpf);
@@ -51,7 +53,7 @@ test('Atualizar um barbeiro existente', () => {
   const novoNome = 'Barbeiro Atualizado';
   const barbeiroAtualizado = barbeiroService.atualizarBarbeiro(1, novoNome, '987654321', '987.654.321-00');
 
-  expect(barbeiroAtualizado).toHaveProperty('idBarbeiro', 1);
+  expect(barbeiroAtualizado).toHaveProperty("idBarbeiro", 1);
   expect(barbeiroAtualizado.nomeBarbeiro).toBe(novoNome);
 });
 
@@ -78,7 +80,7 @@ test('Deletar um barbeiro existente', () => {
 
   const barbeiroDeletado = barbeiroService.deletarBarbeiro(2);
 
-  expect(barbeiroDeletado).toHaveProperty('idBarbeiro', 2);
+  expect(barbeiroDeletado).toHaveProperty("idBarbeiro", 2);
 });
 
 test('Tentar adicionar um barbeiro com CPF já cadastrado deve falhar', () => {
@@ -90,13 +92,17 @@ test('Tentar adicionar um barbeiro com CPF já cadastrado deve falhar', () => {
   });
 
   const novoBarbeiro = {
-    nomeBarbeiro: 'Outro Barbeiro',
-    telefone: '111111111',
-    cpf: '123.456.789-00'
+    nomeBarbeiro: "Outro Barbeiro",
+    telefone: "111111111",
+    cpf: "123.456.789-00" // CPF já existente
   };
 
   expect(() => {
-    barbeiroService.adicionarBarbeiro(novoBarbeiro.nomeBarbeiro, novoBarbeiro.telefone, novoBarbeiro.cpf);
+    barbeiroService.adicionarBarbeiro(
+      novoBarbeiro.nomeBarbeiro,
+      novoBarbeiro.telefone,
+      novoBarbeiro.cpf
+    );
   }).toThrow();
 });
 
@@ -104,7 +110,12 @@ test('Tentar atualizar um barbeiro inexistente deve falhar', () => {
   barbeiro_repository.buscarPorId.mockReturnValue(null);
 
   expect(() => {
-    barbeiroService.atualizarBarbeiro(999, 'Nome Inexistente', '999999999', '999.999.999-99');
+    barbeiroService.atualizarBarbeiro(
+      999,
+      "Nome Inexistente",
+      "999999999",
+      "999.999.999-99"
+    );
   }).toThrow();
 });
 
