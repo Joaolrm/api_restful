@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "api_restful",
     "collectionId": "a8d76634-25e8-4aa3-8195-d290b8dfe37f",
-    "dateExported": "2024-07-09T20:00:18.901Z",
+    "dateExported": "2024-07-16T19:51:58.448Z",
     "version": "1.2",
     "folders": [
         {
@@ -23,11 +23,11 @@
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-07-08T19:14:22.798Z",
-            "modified": "2024-07-09T19:58:10.714Z",
+            "modified": "2024-07-16T19:44:53.979Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU5MDg3LCJleHAiOjE3MjExNjI2ODd9.IzhA5lvBB8C6TNvH2_jW-f2h8B_RIm138b3m5VqSbBY"
                 }
             ]
         },
@@ -57,11 +57,11 @@
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-07-08T19:40:19.297Z",
-            "modified": "2024-07-09T19:58:14.348Z",
+            "modified": "2024-07-16T19:44:57.725Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU5MDg3LCJleHAiOjE3MjExNjI2ODd9.IzhA5lvBB8C6TNvH2_jW-f2h8B_RIm138b3m5VqSbBY"
                 }
             ]
         },
@@ -74,16 +74,16 @@
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-07-08T19:24:47.403Z",
-            "modified": "2024-07-09T19:58:21.580Z",
+            "modified": "2024-07-16T19:45:01.491Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU5MDg3LCJleHAiOjE3MjExNjI2ODd9.IzhA5lvBB8C6TNvH2_jW-f2h8B_RIm138b3m5VqSbBY"
                 }
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"idBabearia\": 1,\n  \"idBarbeiro\": 1,\n  \"idServico\": 1,\n  \"dataHoraServico\": \"2025-07-07-19:30\"\n}",
+                "raw": "{\n  \"idBabearia\": 1,\n  \"idBarbeiro\": 1,\n  \"idServico\": 1,\n  \"dataHoraServico\": \"2025-07-07-17:30\"\n}",
                 "form": []
             }
         },
@@ -96,11 +96,11 @@
             "method": "GET",
             "sortNum": 40000,
             "created": "2024-07-08T20:40:48.310Z",
-            "modified": "2024-07-09T19:58:29.566Z",
+            "modified": "2024-07-16T19:45:06.251Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU5MDg3LCJleHAiOjE3MjExNjI2ODd9.IzhA5lvBB8C6TNvH2_jW-f2h8B_RIm138b3m5VqSbBY"
                 }
             ]
         },
@@ -113,11 +113,11 @@
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2024-07-08T20:41:58.621Z",
-            "modified": "2024-07-09T19:58:43.362Z",
+            "modified": "2024-07-16T19:45:14.695Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU5MDg3LCJleHAiOjE3MjExNjI2ODd9.IzhA5lvBB8C6TNvH2_jW-f2h8B_RIm138b3m5VqSbBY"
                 }
             ]
         },
@@ -130,19 +130,19 @@
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-07-08T20:44:55.288Z",
-            "modified": "2024-07-09T19:59:52.481Z",
+            "modified": "2024-07-16T19:45:18.768Z",
             "headers": [
                 {
                     "name": "token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIwNTU1MDgxLCJleHAiOjE3MjA1NTg2ODF9.q7DpbVPHNeOsYGWz26boO_P6GEMQnoc5_CwE8n46qEI"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU5MDg3LCJleHAiOjE3MjExNjI2ODd9.IzhA5lvBB8C6TNvH2_jW-f2h8B_RIm138b3m5VqSbBY"
                 }
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"idBabearia\": 1,\n    \"idBarbeiro\": 2,\n    \"idServico\": 1,\n    \"dataHoraServico\": \"2024-07-07-20:15\"\n}",
+                "raw": "{\n    \"idBabearia\": 1,\n    \"idBarbeiro\": 2,\n    \"idServico\": 1,\n    \"dataHoraServico\": \"2024-07-07-13:15\"\n}",
                 "form": []
             }
         }
     ],
-    "ref": "Ls_2J5ZCgUqgBF-LWfMJGl6ltkFdvpLK8di5cM0DeNxMvzZaYnHJxfx7DLPY6JKNFXlpoXuhf18C879RZed2FA"
+    "ref": "Ls_2J5ZCgUqgBF-LWfMJGg-2hVGKbrMWZ92X51ed_dHAbHazPlDoJW_aII-7IDI4touHkM61yrNmXXykvXwPPw"
 }
