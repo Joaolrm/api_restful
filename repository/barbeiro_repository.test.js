@@ -3,7 +3,9 @@ const barbeiro_repository = require('./barbeiro_repository');
 test("Function buscarPorId", () => {
     let barbeiroEsperado = {
         idBarbeiro: 1,
-        nomeBarbeiro: "Roger"
+        nomeBarbeiro: "Roger",
+        cpf: "123.456.789-00",
+        telefone: "123456789"
     };
     expect(barbeiro_repository.buscarPorId(1)).toEqual(barbeiroEsperado);
 });
@@ -36,4 +38,3 @@ test("Function deletarBarbeiro", () => {
 test("Function deletarBarbeiro returns null if barber not found", () => {
     expect(barbeiro_repository.deletarBarbeiro(999)).toBeNull();
 });
-

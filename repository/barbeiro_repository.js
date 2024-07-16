@@ -1,56 +1,55 @@
-let idGenerator = 2;
-let listaBarbeiros = [
-    {
-        idBarbeiro: 1,
-        nomeBarbeiro: "Roger",
-        telefone: "123456789",
-        cpf: "123.456.789-00"
-    },
-    {
-        idBarbeiro: 2,
-        nomeBarbeiro: "João",
-        telefone: "987654321",
-        cpf: "987.654.321-00"
-    }
+let barbeiros = [
+    { idBarbeiro: 1, nomeBarbeiro: "Roger", cpf: "123.456.789-00", telefone: "123456789" },
+    { idBarbeiro: 2, nomeBarbeiro: "João", cpf: "987.654.321-00", telefone: "987654321" }
 ];
 
-function buscarPorId(idBarbeiro) {
-    return listaBarbeiros.find(barbeiro => barbeiro.idBarbeiro === idBarbeiro);
+function buscarPorId(id) {
+    return barbeiros.find(barbeiro => barbeiro.idBarbeiro === id);
+}
+
+function buscarPorCpf(cpf) {
+    return barbeiros.find(barbeiro => barbeiro.cpf === cpf);
 }
 
 function adicionarBarbeiro(nomeBarbeiro, telefone, cpf) {
     const novoBarbeiro = {
-        idBarbeiro: ++idGenerator,
+        idBarbeiro: barbeiros.length + 1,
         nomeBarbeiro,
         telefone,
         cpf
     };
-    listaBarbeiros.push(novoBarbeiro);
+    barbeiros.push(novoBarbeiro);
     return novoBarbeiro;
 }
 
-function atualizarBarbeiro(idBarbeiro, nomeBarbeiro, telefone, cpf) {
-    const barbeiro = listaBarbeiros.find(barbeiro => barbeiro.idBarbeiro === idBarbeiro);
-    if (barbeiro) {
-        barbeiro.nomeBarbeiro = nomeBarbeiro;
-        barbeiro.telefone = telefone;
-        barbeiro.cpf = cpf;
-        return barbeiro;
+function atualizarBarbeiro(id, nomeBarbeiro, telefone, cpf) {
+    const barbeiroIndex = barbeiros.findIndex(barbeiro => barbeiro.idBarbeiro === id);
+    if (barbeiroIndex === -1) {
+        return null;
     }
-    return null;
+    const barbeiroAtualizado = { idBarbeiro: id, nomeBarbeiro, telefone, cpf };
+    barbeiros[barbeiroIndex] = barbeiroAtualizado;
+    return barbeiroAtualizado;
 }
 
-function deletarBarbeiro(idBarbeiro) {
-    const index = listaBarbeiros.findIndex(barbeiro => barbeiro.idBarbeiro === idBarbeiro);
-    if (index !== -1) {
-        return listaBarbeiros.splice(index, 1)[0];
+function deletarBarbeiro(id) {
+    const barbeiroIndex = barbeiros.findIndex(barbeiro => barbeiro.idBarbeiro === id);
+    if (barbeiroIndex === -1) {
+        return null;
     }
-    return null;
+    const barbeiroDeletado = barbeiros.splice(barbeiroIndex, 1)[0];
+    return barbeiroDeletado;
+}
+
+function listar() {
+    return barbeiros;
 }
 
 module.exports = {
     buscarPorId,
+    buscarPorCpf,
     adicionarBarbeiro,
     atualizarBarbeiro,
-    deletarBarbeiro
+    deletarBarbeiro,
+    listar
 };
