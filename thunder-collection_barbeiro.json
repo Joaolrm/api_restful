@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "barbeiro",
+    "collectionId": "08da5a43-7e79-4601-bad1-1214498b1d73",
+    "dateExported": "2024-07-16T19:10:56.917Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "0cce5a62-c093-4553-9889-f21c53b424dd",
+            "colId": "08da5a43-7e79-4601-bad1-1214498b1d73",
+            "containerId": "",
+            "name": "listar",
+            "url": "http://localhost:3000/api/barbeiro",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-16T19:07:15.569Z",
+            "modified": "2024-07-16T19:07:36.168Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU2ODAxLCJleHAiOjE3MjExNjA0MDF9.dsGFnQkElJeMAFQNQcV3JiK_WH-zfIa5TLxUzqrS6ow"
+                }
+            ]
+        },
+        {
+            "_id": "9ab37055-2598-4559-9d0d-e212ca0e5cc6",
+            "colId": "08da5a43-7e79-4601-bad1-1214498b1d73",
+            "containerId": "",
+            "name": "buscarPorId",
+            "url": "http://localhost:3000/api/barbeiro/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-07-16T19:08:21.312Z",
+            "modified": "2024-07-16T19:08:48.914Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IkFkbWluIiwiaWF0IjoxNzIxMTU2ODAxLCJleHAiOjE3MjExNjA0MDF9.dsGFnQkElJeMAFQNQcV3JiK_WH-zfIa5TLxUzqrS6ow"
+                }
+            ]
+        }
+    ],
+    "ref": "-37N_lWzugVUWAN9IsYvL3qkXTe-QTl3Tw9vmyluUlDiZS2s-AipOhMqI1hwm2Bl9auEu861Gezer8-ubiuPIQ"
+}
