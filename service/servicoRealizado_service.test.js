@@ -55,24 +55,36 @@ test("Function buscarPorKeyTabela", () => {
 test("Função buscarPorData", () => {
   let servicosRealizadosEsperados = [
     {
-      idBabearia: 1,
-      idBarbeiro: 1,
-      idServico: 1,
-      dataHoraServico: "2024-07-07-19:30",
-      descricaoServico: "Corte simples",
-      nomeBarbearia: "Barbel",
-      nomeBarbeiro: "Roger",
-      valorServico: "20,00",
+      barbearia: {
+        idBabearia: 1,
+        nomeBarbearia: "Barbel",
+      },
+      barbeiro: {
+        idBarbeiro: 1,
+        nomeBarbeiro: "Roger",
+      },
+      servico: {
+        idServico: 1,
+        dataHoraServico: "2024-07-07-19:30",
+        descricaoServico: "Corte simples",
+        valorServico: "20,00",
+      },
     },
     {
-      idBabearia: 1,
-      idBarbeiro: 2,
-      idServico: 1,
-      dataHoraServico: "2024-07-07-20:00",
-      descricaoServico: "Corte simples",
-      nomeBarbearia: "Barbel",
-      nomeBarbeiro: "João",
-      valorServico: "20,00",
+      barbearia: {
+        idBabearia: 1,
+        nomeBarbearia: "Barbel",
+      },
+      barbeiro: {
+        idBarbeiro: 2,
+        nomeBarbeiro: "João",
+      },
+      servico: {
+        idServico: 1,
+        dataHoraServico: "2024-07-07-20:00",
+        descricaoServico: "Corte simples",
+        valorServico: "20,00",
+      },
     },
   ];
   expect(servicoRealizado_service.buscarPorData("2024-07-07")).toEqual(

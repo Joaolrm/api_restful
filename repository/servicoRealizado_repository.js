@@ -51,19 +51,33 @@ function buscarPorData(data) {
         servicoRealizado.idBarbeiro,
         servicoRealizado.idServico
       );
-      let nomeBarbeiro = barbeiro_repository.buscarPorId(
+      let barbeiro = barbeiro_repository.buscarPorId(
         servicoRealizado.idBarbeiro
       );
-      let nomeBarbearia = barbearia_repository.buscarPorId(
+      let barbearia = barbearia_repository.buscarPorId(
         servicoRealizado.idBabearia
       );
 
-      let servicoRealizadoCopy = { ...servicoRealizado };
+      let servico = servico_repository.buscarPorId(servicoRealizado.idServico);
 
-      servicoRealizadoCopy.descricaoServico = descricaoServico.descricaoServico;
-      servicoRealizadoCopy.valorServico = valorServico.valorServico;
-      servicoRealizadoCopy.nomeBarbeiro = nomeBarbeiro.nomeBarbeiro;
-      servicoRealizadoCopy.nomeBarbearia = nomeBarbearia.nomeBarbearia;
+      let servicoRealizadoCopy = {};
+
+      servicoRealizadoCopy.servico = {
+        idServico: servicoRealizado.idServico,
+        dataHoraServico: servicoRealizado.dataHoraServico,
+        descricaoServico: servico.descricaoServico,
+        valorServico: valorServico.valorServico,
+      };
+
+      servicoRealizadoCopy.barbeiro = {
+        idBarbeiro: barbeiro.idBarbeiro,
+        nomeBarbeiro: barbeiro.nomeBarbeiro,
+      };
+
+      servicoRealizadoCopy.barbearia = {
+        idBabearia: servicoRealizado.idBabearia,
+        nomeBarbearia: barbearia.nomeBarbearia,
+      };
 
       sevicosRealizadosNaData.push(servicoRealizadoCopy);
     }
